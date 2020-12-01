@@ -1,0 +1,86 @@
+<!-- <<p>dialog-box works!</p> -->
+<ng-template [ngIf]="action != 'Delete'">
+    <h1 mat-dialog-title>{{action}} Column</h1>
+    <div mat-dialog-content>
+        <form [formGroup]="createEmpForm" novalidate>
+            <div class="row">
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Employee Id</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="sEmployeeId" name="empId" id="id1"
+                            required>
+                        <mat-error
+                            *ngIf="!createEmpForm.controls.sEmployeeId?.valid && (createEmpForm.controls.sEmployeeId?.dirty || createEmpForm.controls.sEmployeeId?.touched)">
+                            <span *ngIf="createEmpForm.controls.sEmployeeId?.errors.required">It is required
+                                field</span>
+                                <span *ngIf="createEmpForm.controls.sEmployeeId?.errors?.restrictSpace">Space is not allowed</span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Employee Name</mat-label>
+                        <input matInput placeholder="Placeholder" formControlName="sEmployeeName" name="empName"
+                            id="id2" required>
+                        <mat-error
+                            *ngIf="!createEmpForm.controls.sEmployeeName?.valid && (createEmpForm.controls.sEmployeeName?.dirty || createEmpForm.controls.sEmployeeName?.touched)">
+                            <div
+                                *ngIf="!createEmpForm.controls.sEmployeeName?.errors.required && createEmpForm.controls.sEmployeeName?.errors.pattern">
+                                Only characters are allowed
+                            </div>
+                            <div *ngIf="createEmpForm.controls.sEmployeeName?.errors.required">
+                                It is required field
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Employee Title</mat-label>
+                        <mat-select id="id3" placeholder="Select" name="empTitle" formControlName="sEmployeeTitle"
+                            required>
+                            <mat-option *ngFor="let title of titleList;let i = index" [value]="title">
+                                {{ title }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error
+                            *ngIf="!createEmpForm.controls.sEmployeeTitle?.valid && (createEmpForm.controls.sEmployeeTitle?.dirty || createEmpForm.controls.sEmployeeTitle?.touched)">
+                            <div *ngIf="createEmpForm.controls.sEmployeeTitle?.errors.required">
+                                It is required field
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose a date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="sDateOfJoining" name="joinDate"
+                            id="id4" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error
+                            *ngIf="!createEmpForm.controls.sDateOfJoining?.valid && (createEmpForm.controls.sDateOfJoining?.dirty || createEmpForm.controls.sDateOfJoining?.touched)">
+                            <div *ngIf="createEmpForm.controls.sDateOfJoining?.errors.required">
+                                It is required field
+                            </div>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button color="primary" [disabled]="!createEmpForm.valid"
+            (click)="doAction()">{{action}}</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" (click)="closeDialog()">Cancel</button>
+    </div>
+</ng-template>
+
+<ng-template [ngIf]="action == 'Delete'">
+        <h2 mat-dialog-title>Are You sure to delete ??</h2>
+        <div mat-dialog-actions>
+                <button mat-raised-button color="primary" [disabled]="!createEmpForm.valid"
+                    (click)="doAction()">{{action}}</button>&nbsp;&nbsp;
+                <button mat-raised-button color="primary" (click)="closeDialog()">Cancel</button>
+            </div>
+</ng-template>

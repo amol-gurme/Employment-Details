@@ -1,0 +1,19 @@
+.table {
+    border-collapse: collapse;
+    font-size: 12px;
+    display: table;
+    th,
+    td {
+        vertical-align: middle;
+        text-align: center;
+        border: 1px solid #dadfe6;
+    }
+    th {
+        color: #1e6bb8;
+    }
+}
+
+.rowWidth{
+    margin: 20px;
+}
+
