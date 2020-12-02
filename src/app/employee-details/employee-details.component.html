@@ -5,7 +5,7 @@
           <thead>
             <tr>
               <th class="text-center">
-               <span> <mat-icon class="matIcon" (click)="openDialog('Add',{},undefined)" style="font-size: 31px">add_circle_outline</mat-icon></span>
+               <span> <mat-icon class="matIcon" (click)="openDialog('Add',{},undefined)" class="fontSize">add_circle_outline</mat-icon></span>
               </th>
               <th class="">Sr No.</th>
               <th class="text-center">Employee Id</th>
@@ -17,8 +17,8 @@
           <tbody class="text-center" *ngIf="empList.length > 0">
             <tr *ngFor="let row of empList;let i = index;trackBy: trackByFn;">
               <td>
-                <span><mat-icon style="font-size: 25px" (click)="openDialog('Update',row,i)">edit</mat-icon></span>
-                <span><mat-icon style="font-size: 25px" (click)="openDialog('Delete',row,i)">delete_outline</mat-icon> </span>
+                <span><mat-icon class="fontSize" (click)="openDialog('Update',row,i)">edit</mat-icon></span>
+                <span><mat-icon class="fontSize" (click)="openDialog('Delete',row,i)">delete_outline</mat-icon> </span>
               </td>
               <td>{{i+1}}</td>
               <td>{{row.sEmployeeId}}</td>

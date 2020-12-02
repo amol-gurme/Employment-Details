@@ -13,7 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   private subscription: Subscription = new Subscription();
   selectedIndex : any ;
-  empList = [ {'sEmployeeId':'11111','sEmployeeName':'Amol Gurme','sEmployeeTitle':'Software Developer','sDateOfJoining':'Sun May 24 2020 19:16:23'}]
+  empList = [];
   constructor(
     private utility:UtilityService,
     private dialog : MatDialog,
