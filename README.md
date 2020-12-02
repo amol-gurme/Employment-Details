@@ -2,6 +2,23 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
 
+Project Name : Employee-Details
+
+Creatd By    :  Amol Gurme  
+
+
+**Follow below steps**
+1.Clone the Repository
+2.After Cloning go to projct folder using command  : 'cd Employment-Details/'
+3.use below command to checkout master branch
+   'git checkout master'
+
+4.run below command 
+  'sudo npm install'
+
+5.run below command to build and serve the application on port 4200
+ 'ng serve --poll=2000'
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
